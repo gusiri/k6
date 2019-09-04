@@ -8,11 +8,11 @@ import { Trend } from "k6/metrics";
 
 // Default runtime options
 export let options = {
-	vus: 1,
-	duration: '5s',
+	vus: 10,
+	duration: '60s',
 	thresholds: {
 		transaction_time: ["avg<1000"], // Require transaction_time's average to be <1000ms
-		http_req_duration: ["avg<2000"], // Require http_req_duration's average to be <2000ms
+		http_req_duration: ["avg<1000"], // Require http_req_duration's average to be <2000ms
 	}
 };
 
@@ -21,7 +21,7 @@ export let options = {
 export let myTrend = new Trend("transaction_time");
 
 // Base URL that we prepend to all URLs we use
-export let urlbase = "https://api.staging.loadimpact.com";
+export let urlbase = "http://211.253.31.18:18800/fabric1.3.0/epc090385610214/sc/arom_test2";
 
 // Think times, to slow down execution somewhat
 export let thinktime1 = 0.1;

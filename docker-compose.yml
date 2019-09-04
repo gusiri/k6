@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   influxdb:
     build:
@@ -24,4 +24,6 @@ services:
       - "6565:6565"
     environment:
       - K6_OUT=influxdb=http://influxdb:8086/k6
+    volumes:
+      - ./samples:/scripts
     command: 'version'
